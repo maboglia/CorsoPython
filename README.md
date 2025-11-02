@@ -108,8 +108,8 @@ Puoi usarlo liberamente per scopi didattici o personali, citando la fonte.
 
 ## 👨‍🏫 Autore
 
-**[Tuo Nome Cognome]**
-Docente di Informatica, sviluppatore e formatore con oltre 20 anni di esperienza.
+**Mauro Bogliaccino**
+Docente di Informatica, sviluppatore e formatore.
 💻 *Didattica, coding e passione per la divulgazione tecnologica.*
 
 ---
