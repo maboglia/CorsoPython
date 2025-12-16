@@ -115,9 +115,3 @@ Docente di Informatica, sviluppatore e formatore.
 ---
 
 > “Python non è solo un linguaggio, è un modo di pensare in modo chiaro e logico.”
-
----
-
-
----
-
