@@ -1,4 +1,4 @@
-# **13 – Infinite Loops**
+## **13 – Infinite Loops**
 
 Un **infinite loop** (ciclo infinito) è un ciclo che **non termina mai** perché la sua condizione rimane sempre vera oppure non viene mai modificata.
 Può essere **volontario** (server, listener, menu interattivi) oppure un **errore logico**.

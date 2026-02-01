@@ -1,4 +1,4 @@
-# **12 – While Loops**
+## **12 – While Loops**
 
 Il **ciclo `while`** permette di eseguire un blocco di codice **finché una condizione rimane vera**.
 È un ciclo a **iterazione indeterminata**: non sai in anticipo quante volte verrà eseguito.

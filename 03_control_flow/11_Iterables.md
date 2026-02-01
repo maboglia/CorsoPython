@@ -1,4 +1,4 @@
-# **11 – Iterables**
+## **11 – Iterables**
 
 Un **iterable** è un oggetto su cui è possibile **iterare**, cioè visitare i suoi elementi **uno alla volta** usando un ciclo `for`.
 In Python, il concetto di iterabile è fondamentale per comprendere cicli, comprehension e generatori.

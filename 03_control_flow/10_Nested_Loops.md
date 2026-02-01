@@ -1,4 +1,4 @@
-# **10 – Nested Loops**
+## **10 – Nested Loops**
 
 I **nested loops** (cicli annidati) sono cicli inseriti **all’interno di altri cicli**.
 Servono quando è necessario iterare su **strutture dati multidimensionali** o combinare più insiemi di valori.
