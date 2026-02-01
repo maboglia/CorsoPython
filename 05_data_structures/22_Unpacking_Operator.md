@@ -79,4 +79,4 @@ stampa_info(**info)  # Anna ha 25 anni
 
 ---
 
-Vuoi procedere con il **paragrafo 23 – Exercise**?
+[Vuoi procedere con il **paragrafo 23 – Exercise**?](23_Exercise.md)

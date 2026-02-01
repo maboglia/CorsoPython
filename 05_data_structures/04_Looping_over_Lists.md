@@ -134,4 +134,4 @@ print(quadrati)   # [100, 400, 900, 1600]
 
 ---
 
-Vuoi passare al **paragrafo 5 – Adding or Removing Items**?
+[Vuoi passare al **paragrafo 5 – Adding or Removing Items**?](05_Adding_or_Removing_Items.md)

@@ -66,4 +66,4 @@ else:
 
 ---
 
-Vuoi procedere con il **paragrafo 14 – Queues**?
+[Vuoi procedere con il **paragrafo 14 – Queues**?](14_Queues.md)

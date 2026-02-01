@@ -79,4 +79,4 @@ print(5 not in A)  # True
 
 ---
 
-Vuoi procedere con il **paragrafo 19 – Dictionaries**?
+[Vuoi procedere con il **paragrafo 19 – Dictionaries**?](19_Dictionaries.md)

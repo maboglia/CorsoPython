@@ -70,4 +70,4 @@ print(numeri)  # [3, 2, 1]
 
 ---
 
-Vuoi procedere con il **paragrafo 17 – Arrays**?
+[Vuoi procedere con il **paragrafo 17 – Arrays**?](17_Arrays.md)

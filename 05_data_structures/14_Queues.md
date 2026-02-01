@@ -83,4 +83,4 @@ print(cima)   # 20
 
 ---
 
-Vuoi procedere con il **paragrafo 15 – Tuples**?
+[Vuoi procedere con il **paragrafo 15 – Tuples**?](15_Tuples.md)

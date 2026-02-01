@@ -76,4 +76,4 @@ List comprehension sono pensate per creare **liste**. Per generare altri tipi di
 
 ---
 
-Vuoi procedere con il **paragrafo 12 – Zip Function**?
+[Vuoi procedere con il **paragrafo 12 – Zip Function**?](12_Zip_Function.md)

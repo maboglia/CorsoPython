@@ -65,4 +65,4 @@ Come `map()`, `filter()` restituisce un oggetto iterabile; per ottenere una list
 
 ---
 
-Vuoi procedere con il **paragrafo 11 – List Comprehensions**?
+[Vuoi procedere con il **paragrafo 11 – List Comprehensions**?](11_List_Comprehensions.md)

@@ -81,4 +81,4 @@ print(studenti)  # [('Luca', 20), ('Marco', 22), ('Anna', 24)]
 
 ---
 
-Vuoi procedere con il **paragrafo 8 – Lambda Functions**?
+[Vuoi procedere con il **paragrafo 8 – Lambda Functions**?](08_Lambda_Functions.md)

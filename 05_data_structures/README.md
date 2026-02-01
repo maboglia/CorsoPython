@@ -70,6 +70,3 @@
 
 23. **Exercise**
     Una serie di esercizi finali permetterà di consolidare tutte le tecniche e le strutture dati presentate nel capitolo.
-
----
-

@@ -74,4 +74,4 @@ print(lunghezze)  # {'ciao': 4, 'mondo': 5, 'python': 6}
 
 ---
 
-Vuoi procedere con il **paragrafo 21 – Generator Expressions**?
+[Vuoi procedere con il **paragrafo 21 – Generator Expressions**?](21_Generator_Expressions.md)

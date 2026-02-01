@@ -67,4 +67,4 @@ print(list(somma))  # [5, 7, 9]
 
 ---
 
-Vuoi procedere con il **paragrafo 10 – Filter Function**?
+[Vuoi procedere con il **paragrafo 10 – Filter Function**?](10_Filter_Function.md)

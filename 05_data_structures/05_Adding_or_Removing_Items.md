@@ -118,4 +118,4 @@ print(numeri)  # [1, 5, 6]
 
 ---
 
-Vuoi procedere con il **paragrafo 6 – Finding Items**?
+[Vuoi procedere con il **paragrafo 6 – Finding Items**?](06_Finding_Items.md)

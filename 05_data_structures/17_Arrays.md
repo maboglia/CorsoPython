@@ -68,4 +68,4 @@ print(numeri)
 
 ---
 
-Vuoi procedere con il **paragrafo 18 – Sets**?
+[Vuoi procedere con il **paragrafo 18 – Sets**?](18_Sets.md)

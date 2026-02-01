@@ -82,4 +82,4 @@ print(filtrati)  # [5, 9]
 
 ---
 
-Vuoi procedere con il **paragrafo 9 – Map Function**?
+[Vuoi procedere con il **paragrafo 9 – Map Function**?](09_Map_Function.md)

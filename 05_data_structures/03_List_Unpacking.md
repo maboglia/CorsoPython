@@ -96,4 +96,4 @@ print(somma(*numeri))   # 6
 
 ---
 
-Vuoi procedere con il **paragrafo 4 – Looping over Lists**?
+[Vuoi procedere con il **paragrafo 4 – Looping over Lists**?](04_Looping_over_Lists.md)

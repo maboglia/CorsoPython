@@ -7,8 +7,8 @@ Trovare elementi in una lista è un’operazione molto comune in Python. Esiston
 ## **Verificare se un elemento esiste**
 
 L’operatore `in` permette di controllare rapidamente se un elemento è presente in una lista:
-
 ```python
+
 numeri = [10, 20, 30, 40]
 
 print(20 in numeri)   # True
@@ -85,4 +85,4 @@ print(sum(numeri))  # 75
 
 ---
 
-Vuoi continuare con il **paragrafo 7 – Sorting Lists**?
+[Vuoi continuare con il **paragrafo 7 – Sorting Lists**?](07_Sorting_Lists.md)

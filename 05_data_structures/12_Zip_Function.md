@@ -97,4 +97,4 @@ print(eta)   # (25, 30, 22)
 
 ---
 
-Vuoi procedere con il **paragrafo 13 – Stacks**?
+[Vuoi procedere con il **paragrafo 13 – Stacks**?](13_Stacks.md)

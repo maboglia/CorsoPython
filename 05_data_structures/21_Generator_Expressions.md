@@ -72,4 +72,4 @@ Per accesso ripetuto, conviene trasformarlo in lista o altra struttura.
 
 ---
 
-Vuoi procedere con il **paragrafo 22 – Unpacking Operator**?
+[Vuoi procedere con il **paragrafo 22 – Unpacking Operator**?](22_Unpacking_Operator.md)

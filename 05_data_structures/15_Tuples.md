@@ -66,4 +66,4 @@ print(t[2][0])  # 3
 
 ---
 
-Vuoi procedere con il **paragrafo 16 – Swapping Variables**?
+[Vuoi procedere con il **paragrafo 16 – Swapping Variables**?](16_Swapping_Variables.md)

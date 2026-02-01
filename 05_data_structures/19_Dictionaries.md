@@ -98,4 +98,4 @@ print("città" not in studente)  # True
 
 ---
 
-Vuoi procedere con il **paragrafo 20 – Dictionary Comprehensions**?
+[Vuoi procedere con il **paragrafo 20 – Dictionary Comprehensions**?](20_Dictionary_Comprehensions.md)
