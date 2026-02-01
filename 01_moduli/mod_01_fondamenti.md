@@ -341,3 +341,216 @@ eta = int(input("Età: "))
 print(f"{nome} avrà {eta + 1} anni l'anno prossimo")
 ```
 
+---
+
+## Esercizi – Modulo 1: Fondamenti Python
+
+## 🟢 Livello Base (riscaldamento / REPL)
+
+### Esercizio 1 – Primo contatto
+
+Apri la REPL Python ed esegui:
+
+1. Una somma
+2. Una moltiplicazione
+3. Una divisione
+
+👉 Scrivi cosa succede se dividi due interi.
+
+---
+
+### Esercizio 2 – Stampa a video
+
+Scrivi un programma che stampi:
+
+```
+Benvenuto nel corso di Python!
+```
+
+Poi modificalo per stampare il tuo nome su una nuova riga.
+
+---
+
+### Esercizio 3 – Variabili
+
+1. Crea una variabile `nome`
+2. Crea una variabile `eta`
+3. Stampale entrambe con `print()`
+
+---
+
+## 🟡 Livello Base–Intermedio
+
+### Esercizio 4 – Input utente
+
+Scrivi un programma che:
+
+1. Chiede il nome all’utente
+2. Chiede l’età
+3. Stampa una frase del tipo:
+
+```
+Ciao Marco, hai 20 anni
+```
+
+💡 Attenzione al tipo restituito da `input()`.
+
+---
+
+### Esercizio 5 – Operazioni numeriche
+
+Chiedi all’utente due numeri interi e stampa:
+
+* la somma
+* la differenza
+* il prodotto
+* la divisione
+
+---
+
+### Esercizio 6 – Conversione tipi
+
+Cosa succede se fai:
+
+```python
+numero = input("Inserisci un numero: ")
+print(numero + 1)
+```
+
+👉 Correggi il programma.
+
+---
+
+## 🟡 Stringhe
+
+### Esercizio 7 – Metodi delle stringhe
+
+Dato:
+
+```python
+testo = "  Python è Divertente  "
+```
+
+1. Rimuovi gli spazi iniziali e finali
+2. Trasforma il testo in maiuscolo
+3. Sostituisci “Divertente” con “Potente”
+
+---
+
+### Esercizio 8 – Lunghezza stringa
+
+Chiedi una parola all’utente e stampa:
+
+```
+La parola contiene X caratteri
+```
+
+Suggerimento: `len()`.
+
+---
+
+### Esercizio 9 – Indicizzazione
+
+Data la stringa:
+
+```python
+parola = "Programmazione"
+```
+
+1. Stampa il primo carattere
+2. Stampa l’ultimo carattere
+3. Stampa i primi 5 caratteri
+
+---
+
+## 🟠 Formattazione
+
+### Esercizio 10 – F-string
+
+Chiedi:
+
+* nome
+* cognome
+* età
+
+Stampa:
+
+```
+Nome: Mario Rossi – Età: 25
+```
+
+Usa **solo f-string**.
+
+---
+
+### Esercizio 11 – Calcolo futuro
+
+Chiedi l’anno di nascita e stampa:
+
+```
+Nel 2030 avrai X anni
+```
+
+---
+
+### Esercizio 12 – Prezzo formattato
+
+Dato:
+
+```python
+prezzo = 7.5
+```
+
+Stampa:
+
+```
+Prezzo: 7.50 €
+```
+
+---
+
+## 🔵 Raw strings e caratteri speciali
+
+### Esercizio 13 – Percorsi
+
+Stampa questo percorso **senza errori**:
+
+```
+C:\Users\Studente\Desktop\python
+```
+
+1. usando escape
+2. usando raw string
+
+---
+
+## 🔴 Mini–verifica finale (riassuntivo)
+
+### Esercizio 14 – Anagrafica
+
+Scrivi un programma che:
+
+1. Chiede nome, cognome ed età
+2. Stampa una frase completa e ben formattata
+3. Indica quanti caratteri ha il nome completo
+
+Esempio output:
+
+```
+Mario Rossi ha 20 anni
+Il nome completo contiene 11 caratteri
+```
+
+---
+
+## ⭐ Extra (per studenti veloci)
+
+### Esercizio 15 – Gioco semplice
+
+Chiedi un numero all’utente e stampa:
+
+* se è maggiore di 10
+* se è uguale a 10
+* se è minore di 10
+
+(usa solo operatori di confronto)
