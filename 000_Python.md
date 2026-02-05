@@ -88,3 +88,11 @@
 * Generatore di password casuali
 * Lettura/scrittura di un file di testo con conteggio parole
 
+---
+
+## Risorse aggiuntive
+
+* [Documentazione ufficiale di Python](https://docs.python.org/3/)
+* Tutorial e guide online: W3Schools, Real Python
+* Comunità e forum: Stack Overflow, Reddit r/learnpython
+* Esercizi pratici: LeetCode, HackerRank, Codewars
