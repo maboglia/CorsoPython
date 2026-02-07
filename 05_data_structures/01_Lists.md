@@ -68,4 +68,4 @@ Usa una lista quando:
 
 ---
 
-[Vuoi passare al **paragrafo 2 – Accessing Items**?](02.md)
+[Vuoi passare al **paragrafo 2 – Accessing Items**?](01_Lists.md)
