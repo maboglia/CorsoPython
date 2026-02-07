@@ -3,7 +3,9 @@
 Le **liste** sono una delle strutture dati fondamentali e più utilizzate in Python.
 Rappresentano una **sequenza ordinata e mutabile**, cioè puoi modificarne il contenuto aggiungendo, rimuovendo o cambiando gli elementi. Le liste possono contenere valori di qualunque tipo: numeri, stringhe, booleani, altre liste, oggetti personalizzati.
 
-### **Creazione di una lista**
+---
+
+## **Creazione di una lista**
 
 Una lista si definisce usando le parentesi quadre `[]` con gli elementi separati da virgola:
 
@@ -13,14 +15,18 @@ nomi = ["Anna", "Luca", "Marco"]
 misti = [1, "ciao", True, 3.14]
 ```
 
-### **Caratteristiche principali**
+---
+
+## **Caratteristiche principali**
 
 * **Ordinata**: gli elementi mantengono una posizione precisa.
 * **Indicizzabile**: puoi accedere agli elementi tramite indice.
 * **Mutabile**: puoi modificare contenuto e dimensione della lista.
 * **Eterogenea**: può contenere elementi di tipi diversi.
 
-### **Lista vuota**
+---
+
+## **Lista vuota**
 
 ```python
 vuota = []
@@ -28,7 +34,9 @@ oppure
 vuota = list()
 ```
 
-### **Modifica degli elementi**
+---
+
+## **Modifica degli elementi**
 
 Poiché sono mutabili, puoi cambiare un valore semplicemente accedendo alla posizione:
 
@@ -36,7 +44,9 @@ Poiché sono mutabili, puoi cambiare un valore semplicemente accedendo alla posi
 numeri[1] = 20   # sostituisce il 2 con 20
 ```
 
-### **Liste annidate**
+---
+
+## **Liste annidate**
 
 Le liste possono contenere altre liste:
 
@@ -47,7 +57,9 @@ matrice = [
 ]
 ```
 
-### **Funzioni di base sulle liste**
+---
+
+## **Funzioni di base sulle liste**
 
 Python fornisce alcune funzioni utili per lavorare rapidamente:
 
@@ -58,7 +70,9 @@ max(numeri)      # valore massimo
 sum(numeri)      # somma (solo numeri)
 ```
 
-### **Quando usare una lista?**
+---
+
+## **Quando usare una lista?**
 
 Usa una lista quando:
 
@@ -68,4 +82,4 @@ Usa una lista quando:
 
 ---
 
-[Vuoi passare al **paragrafo 2 – Accessing Items**?](01_Lists.md)
+[Vuoi passare al **paragrafo 2 – Accessing Items**?](02_Accessing_Items.md)
