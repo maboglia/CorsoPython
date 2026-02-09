@@ -6,6 +6,7 @@ Questo materiale è pensato per studenti, docenti e professionisti che vogliono 
 ---
 
 ## 🎯 Obiettivi del corso
+
 - Comprendere la **logica e la sintassi di base** di Python  
 - Acquisire familiarità con **variabili, strutture di controllo e funzioni**  
 - Imparare a **gestire file, errori e moduli**  
@@ -16,24 +17,25 @@ Questo materiale è pensato per studenti, docenti e professionisti che vogliono 
 
 ## 📚 Struttura del corso
 
-| Modulo | Argomento | Contenuti principali |
-|:-------|:-----------|:--------------------|
-| 1 | Introduzione a Python | Cos’è Python, installazione, primo programma |
-| 2 | Tipi di dati di base | Numeri, stringhe, booleani, conversioni |
-| 3 | Variabili e operatori | Operatori aritmetici, logici e di confronto |
-| 4 | Strutture di controllo | if, for, while, break, continue |
-| 5 | Collezioni | Liste, tuple, set, dizionari |
-| 6 | Funzioni | Parametri, ritorni, lambda, scope |
-| 7 | Input/Output | input, print, lettura/scrittura file |
-| 8 | Gestione degli errori | try/except, raise, finally |
-| 9 | Moduli e librerie | import, moduli standard, pip |
-| 10 | Mini-progetti | Calcolatrice, rubrica, file analyzer, password generator |
+| Modulo | Argomento              | Contenuti principali                                     |
+| :----- | :--------------------- | :------------------------------------------------------- |
+| 1      | Introduzione a Python  | Cos’è Python, installazione, primo programma             |
+| 2      | Tipi di dati di base   | Numeri, stringhe, booleani, conversioni                  |
+| 3      | Variabili e operatori  | Operatori aritmetici, logici e di confronto              |
+| 4      | Strutture di controllo | if, for, while, break, continue                          |
+| 5      | Collezioni             | Liste, tuple, set, dizionari                             |
+| 6      | Funzioni               | Parametri, ritorni, lambda, scope                        |
+| 7      | Input/Output           | input, print, lettura/scrittura file                     |
+| 8      | Gestione degli errori  | try/except, raise, finally                               |
+| 9      | Moduli e librerie      | import, moduli standard, pip                             |
+| 10     | Mini-progetti          | Calcolatrice, rubrica, file analyzer, password generator |
 
 ---
 
 ## 🧠 Metodo didattico
 
 Ogni modulo è composto da:
+
 1. **Dispensa teorica / slide**  
 2. **Laboratorio pratico** con esercizi graduali  
 3. **Mini-progetto** di riepilogo  
@@ -55,8 +57,8 @@ Questo approccio consente di **imparare facendo**, consolidando la teoria con la
 ## 🚀 Come usare questo repository
 
 1. **Clona il progetto:**
-   git clone https://github.com/<tuo-utente>/corso-python-base.git
-   cd corso-python-base
+   git clone https://github.com/maboglia/CorsoPython.git
+   cd CorsoPython
 
 2. **Apri i moduli:**
 
