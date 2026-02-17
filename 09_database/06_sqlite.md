@@ -206,3 +206,187 @@ inserisci("Anna", 19)
 | Velocità locale | Molto alta    | Buona             |
 | Ideale per      | CLI / Desktop | Web / Enterprise  |
 
+---
+
+## **tipi di dato in SQLite**.
+
+In **SQLite** i tipi di dato funzionano in modo diverso rispetto a MySQL o PostgreSQL.
+
+---
+
+# 🔎 1️⃣ Caratteristica fondamentale: Tipizzazione dinamica
+
+SQLite usa un sistema chiamato:
+
+> **Type Affinity (affinità di tipo)**
+
+👉 Non esistono tipi rigidi come negli altri DBMS.
+👉 Il tipo è associato **alla colonna**, ma il valore può avere tipo diverso.
+
+Esempio:
+
+```sql
+CREATE TABLE esempio (
+    numero INTEGER
+);
+```
+
+Puoi comunque inserire:
+
+```sql
+INSERT INTO esempio VALUES ('ciao');
+```
+
+SQLite lo permette (anche se non è consigliato).
+
+---
+
+# 2️⃣ I 5 tipi di storage reali
+
+Internamente SQLite usa solo **5 tipi di dato effettivi**:
+
+| Tipo        | Descrizione           |
+| ----------- | --------------------- |
+| **NULL**    | Valore nullo          |
+| **INTEGER** | Intero (1–8 byte)     |
+| **REAL**    | Numero floating point |
+| **TEXT**    | Stringa UTF-8/UTF-16  |
+| **BLOB**    | Dati binari           |
+
+⚠ Questi sono i veri tipi memorizzati su disco.
+
+---
+
+# 3️⃣ Type Affinity (come interpreta i tipi dichiarati)
+
+Quando dichiari una colonna:
+
+```sql
+CREATE TABLE studenti (
+    id INT,
+    nome VARCHAR(100),
+    voto DECIMAL(5,2),
+    attivo BOOLEAN,
+    dati BLOB
+);
+```
+
+SQLite converte tutto in una delle 5 affinità:
+
+| Tipo dichiarato     | Affinità |
+| ------------------- | -------- |
+| INT, INTEGER        | INTEGER  |
+| VARCHAR, TEXT, CHAR | TEXT     |
+| DECIMAL, NUMERIC    | NUMERIC  |
+| REAL, FLOAT, DOUBLE | REAL     |
+| BLOB                | BLOB     |
+
+---
+
+# 4️⃣ Tipo NUMERIC (particolarità)
+
+NUMERIC è speciale:
+
+Se inserisci:
+
+* `"123"` → diventa INTEGER
+* `"123.45"` → diventa REAL
+* `"abc"` → resta TEXT
+
+---
+
+# 5️⃣ Booleani in SQLite
+
+SQLite **non ha un vero BOOLEAN**.
+
+```sql
+BOOLEAN
+```
+
+è solo un alias di NUMERIC.
+
+Convenzione:
+
+```sql
+0 = false
+1 = true
+```
+
+---
+
+# 6️⃣ Date e Orari
+
+SQLite **non ha un tipo DATE nativo**.
+
+Le date possono essere salvate come:
+
+| Formato            | Tipo    |
+| ------------------ | ------- |
+| "2025-02-17"       | TEXT    |
+| timestamp Unix     | INTEGER |
+| 2450000.5 (Julian) | REAL    |
+
+Esempio:
+
+```sql
+CREATE TABLE eventi (
+    data TEXT
+);
+```
+
+Funzioni disponibili:
+
+* `date()`
+* `datetime()`
+* `strftime()`
+
+---
+
+# 7️⃣ Differenza rispetto a MySQL
+
+In MySQL:
+
+* Tipizzazione **rigida**
+* VARCHAR(100) è realmente limitato
+* BOOLEAN è reale (alias TINYINT)
+* DATE è tipo nativo
+
+In SQLite:
+
+* VARCHAR(100) non impone limite reale
+* Tipi molto flessibili
+* Meno controllo, più libertà
+
+---
+
+# 8️⃣ STRICT mode (novità moderna)
+
+Dalla versione 3.37 esiste:
+
+```sql
+CREATE TABLE studenti (
+    id INTEGER,
+    nome TEXT
+) STRICT;
+```
+
+👉 Impone controllo più rigido sui tipi
+👉 Si comporta più come MySQL/PostgreSQL
+
+Molto utile in ambito didattico.
+
+---
+
+# 9️⃣ Riassunto sintetico
+
+SQLite usa solo 5 tipi reali:
+
+```
+NULL
+INTEGER
+REAL
+TEXT
+BLOB
+```
+
+Tutto il resto è interpretazione tramite **type affinity**.
