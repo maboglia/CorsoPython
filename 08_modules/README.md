@@ -197,3 +197,5 @@ Le Espressioni Regolari sono come un "super-cerca" per il testo.
 * *In `random`:* Ricorda che `random.randint(1, 6)` include sia l'1 che il 6 (a differenza del `range` classico).
 * *In `os`:* Prima di eliminare un file con `os.remove()`, controlla sempre che esista!
 
+---
+
