@@ -246,7 +246,7 @@ def crea_link_whatsapp():
 
 ## 11. Modulo `http.server`: Creare un Server Locale
 
-Questo è il "colpo di scena" per gli studenti. Python può trasformare il computer in un server web con una sola riga di comando. Non serve scrivere codice complesso, si usa dal terminale.
+Python può trasformare il computer in un server web con una sola riga di comando. Non serve scrivere codice complesso, si usa dal terminale.
 
 * **Istruzione didattica:**
 
@@ -262,10 +262,10 @@ Questo è il "colpo di scena" per gli studenti. Python può trasformare il compu
 
 Quando si lavora con il web, il modulo `urllib` può restituire degli errori (es. il famoso 404). È utile includere questa piccola legenda per gli studenti:
 
-| Codice | Significato | Messaggio tipico |
-| --- | --- | --- |
-| **200** | OK | Tutto ha funzionato! |
-| **404** | Not Found | La pagina non esiste. |
-| **403** | Forbidden | Non hai il permesso di entrare. |
+| Codice  | Significato  | Messaggio tipico                |
+| ------- | ------------ | ------------------------------- |
+| **200** | OK           | Tutto ha funzionato!            |
+| **404** | Not Found    | La pagina non esiste.           |
+| **403** | Forbidden    | Non hai il permesso di entrare. |
 | **500** | Server Error | Il sito ha un problema tecnico. |
 
