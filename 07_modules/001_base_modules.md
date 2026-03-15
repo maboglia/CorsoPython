@@ -73,17 +73,6 @@ Se vuoi creare una scheda di fine modulo, potresti proporre un **"Gestore di Spe
 
 ---
 
-### Struttura consigliata per la tua scheda
-
-Per ogni esercizio, ti suggerisco di includere:
-
-1. **Obiettivo:** Quale problema risolviamo?
-2. **Ingredienti:** Quali moduli e metodi servono.
-3. **Traccia di codice:** Un piccolo scheletro con dei `# TODO` da riempire.
-4. **Soluzione commentata:** Da mettere sul retro o in fondo.
-
----
-
 ## Usa i tre scheletri di codice pronti qui sotto per risolvere gli esercizi
 
 ---
