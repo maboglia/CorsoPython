@@ -5,13 +5,15 @@
 
 ---
 
-- [Built-in Functions](https://docs.python.org/3/library/functions)
+## [Built-in Functions](https://docs.python.org/3/library/functions)
+
 - [Built-in Constants](https://docs.python.org/3/library/constants)
 - [Constants added by the site module](https://docs.python.org/3/library/constants.html#constants-added-by-the-site-module)
 
 ---
 
-- [Built-in Types](https://docs.python.org/3/library/stdtypes)
+## [Built-in Types](https://docs.python.org/3/library/stdtypes)
+
 - [Truth Value Testing](https://docs.python.org/3/library/stdtypes.html#truth-value-testing)
 - [Boolean Operations — and, or, not](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not)
 - [Comparisons](https://docs.python.org/3/library/stdtypes.html#comparisons)
@@ -32,7 +34,8 @@
 
 ---
 
-- [Built-in Exceptions](https://docs.python.org/3/library/exceptions)
+## [Built-in Exceptions](https://docs.python.org/3/library/exceptions)
+
 - [Exception context](https://docs.python.org/3/library/exceptions.html#exception-context)
 - [Inheriting from built-in exceptions](https://docs.python.org/3/library/exceptions.html#inheriting-from-built-in-exceptions)
 - [Base classes](https://docs.python.org/3/library/exceptions.html#base-classes)
@@ -43,7 +46,8 @@
 
 ---
 
-- [Thread Safety Guarantees](https://docs.python.org/3/library/threadsafety)
+## [Thread Safety Guarantees](https://docs.python.org/3/library/threadsafety)
+
 - [Thread safety levels](https://docs.python.org/3/library/threadsafety.html#thread-safety-levels)
 - [Thread safety for list objects](https://docs.python.org/3/library/threadsafety.html#thread-safety-for-list-objects)
 - [Thread safety for dict objects](https://docs.python.org/3/library/threadsafety.html#thread-safety-for-dict-objects)
@@ -53,7 +57,8 @@
 
 ---
 
-- [Text Processing Services](https://docs.python.org/3/library/text)
+## [Text Processing Services](https://docs.python.org/3/library/text)
+
 - [string — Common string operations](https://docs.python.org/3/library/string)
 - [string.templatelib — Support for template string literals](https://docs.python.org/3/library/string.templatelib)
 - [re — Regular expression operations](https://docs.python.org/3/library/re)
@@ -66,13 +71,15 @@
 
 ---
 
-- [Binary Data Services](https://docs.python.org/3/library/binary)
+## [Binary Data Services](https://docs.python.org/3/library/binary)
+
 - [struct — Interpret bytes as packed binary data](https://docs.python.org/3/library/struct)
 - [codecs — Codec registry and base classes](https://docs.python.org/3/library/codecs)
 
 ---
 
-- [Data Types](https://docs.python.org/3/library/datatypes)
+## [Data Types](https://docs.python.org/3/library/datatypes)
+
 - [datetime — Basic date and time types](https://docs.python.org/3/library/datetime)
 - [zoneinfo — IANA time zone support](https://docs.python.org/3/library/zoneinfo)
 - [calendar — General calendar-related functions](https://docs.python.org/3/library/calendar)
@@ -91,7 +98,8 @@
 
 ---
 
-- [Numeric and Mathematical Modules](https://docs.python.org/3/library/numeric)
+## [Numeric and Mathematical Modules](https://docs.python.org/3/library/numeric)
+
 - [numbers — Numeric abstract base classes](https://docs.python.org/3/library/numbers)
 - [math — Mathematical functions](https://docs.python.org/3/library/math)
 - [cmath — Mathematical functions for complex numbers](https://docs.python.org/3/library/cmath)
@@ -102,14 +110,16 @@
 
 ---
 
-- [Functional Programming Modules](https://docs.python.org/3/library/functional)
+## [Functional Programming Modules](https://docs.python.org/3/library/functional)
+
 - [itertools — Functions creating iterators for efficient looping](https://docs.python.org/3/library/itertools)
 - [functools — Higher-order functions and operations on callable objects](https://docs.python.org/3/library/functools)
 - [operator — Standard operators as functions](https://docs.python.org/3/library/operator)
 
 ---
 
-- [File and Directory Access](https://docs.python.org/3/library/filesys)
+## [File and Directory Access](https://docs.python.org/3/library/filesys)
+
 - [pathlib — Object-oriented filesystem paths](https://docs.python.org/3/library/pathlib)
 - [os.path — Common pathname manipulations](https://docs.python.org/3/library/os.path)
 - [stat — Interpreting stat() results](https://docs.python.org/3/library/stat)
@@ -122,7 +132,8 @@
 
 ---
 
-- [Data Persistence](https://docs.python.org/3/library/persistence)
+## [Data Persistence](https://docs.python.org/3/library/persistence)
+
 - [pickle — Python object serialization](https://docs.python.org/3/library/pickle)
 - [copyreg — Register pickle support functions](https://docs.python.org/3/library/copyreg)
 - [shelve — Python object persistence](https://docs.python.org/3/library/shelve)
@@ -132,7 +143,8 @@
 
 ---
 
-- [Data Compression and Archiving](https://docs.python.org/3/library/archiving)
+## [Data Compression and Archiving](https://docs.python.org/3/library/archiving)
+
 - [The compression package](https://docs.python.org/3/library/compression)
 - [compression.zstd — Compression compatible with the Zstandard format](https://docs.python.org/3/library/compression.zstd)
 - [zlib — Compression compatible with gzip](https://docs.python.org/3/library/zlib)
@@ -144,7 +156,8 @@
 
 ---
 
-- [File Formats](https://docs.python.org/3/library/fileformats)
+## [File Formats](https://docs.python.org/3/library/fileformats)
+
 - [csv — CSV File Reading and Writing](https://docs.python.org/3/library/csv)
 - [configparser — Configuration file parser](https://docs.python.org/3/library/configparser)
 - [tomllib — Parse TOML files](https://docs.python.org/3/library/tomllib)
@@ -153,14 +166,16 @@
 
 ---
 
-- [Cryptographic Services](https://docs.python.org/3/library/crypto)
+## [Cryptographic Services](https://docs.python.org/3/library/crypto)
+
 - [hashlib — Secure hashes and message digests](https://docs.python.org/3/library/hashlib)
 - [hmac — Keyed-Hashing for Message Authentication](https://docs.python.org/3/library/hmac)
 - [secrets — Generate secure random numbers for managing secrets](https://docs.python.org/3/library/secrets)
 
 ---
 
-- [Generic Operating System Services](https://docs.python.org/3/library/allos)
+## [Generic Operating System Services](https://docs.python.org/3/library/allos)
+
 - [os — Miscellaneous operating system interfaces](https://docs.python.org/3/library/os)
 - [io — Core tools for working with streams](https://docs.python.org/3/library/io)
 - [time — Time access and conversions](https://docs.python.org/3/library/time)
@@ -173,7 +188,8 @@
 
 ---
 
-- [Command-line interface libraries](https://docs.python.org/3/library/cmdlinelibs)
+## [Command-line interface libraries](https://docs.python.org/3/library/cmdlinelibs)
+
 - [argparse — Parser for command-line options, arguments and subcommands](https://docs.python.org/3/library/argparse)
 - [optparse — Parser for command line options](https://docs.python.org/3/library/optparse)
 - [getpass — Portable password input](https://docs.python.org/3/library/getpass)
@@ -186,7 +202,8 @@
 
 ---
 
-- [Concurrent Execution](https://docs.python.org/3/library/concurrency)
+## [Concurrent Execution](https://docs.python.org/3/library/concurrency)
+
 - [threading — Thread-based parallelism](https://docs.python.org/3/library/threading)
 - [multiprocessing — Process-based parallelism](https://docs.python.org/3/library/multiprocessing)
 - [multiprocessing.shared_memory — Shared memory for direct access across processes](https://docs.python.org/3/library/multiprocessing.shared_memory)
@@ -201,7 +218,8 @@
 
 ---
 
-- [Networking and Interprocess Communication](https://docs.python.org/3/library/ipc)
+## [Networking and Interprocess Communication](https://docs.python.org/3/library/ipc)
+
 - [asyncio — Asynchronous I/O](https://docs.python.org/3/library/asyncio)
 - [socket — Low-level networking interface](https://docs.python.org/3/library/socket)
 - [ssl — TLS/SSL wrapper for socket objects](https://docs.python.org/3/library/ssl)
@@ -212,7 +230,8 @@
 
 ---
 
-- [Internet Data Handling](https://docs.python.org/3/library/netdata)
+## [Internet Data Handling](https://docs.python.org/3/library/netdata)
+
 - [email — An email and MIME handling package](https://docs.python.org/3/library/email)
 - [json — JSON encoder and decoder](https://docs.python.org/3/library/json)
 - [mailbox — Manipulate mailboxes in various formats](https://docs.python.org/3/library/mailbox)
@@ -223,7 +242,8 @@
 
 ---
 
-- [Structured Markup Processing Tools](https://docs.python.org/3/library/markup)
+## [Structured Markup Processing Tools](https://docs.python.org/3/library/markup)
+
 - [html — HyperText Markup Language support](https://docs.python.org/3/library/html)
 - [html.parser — Simple HTML and XHTML parser](https://docs.python.org/3/library/html.parser)
 - [html.entities — Definitions of HTML general entities](https://docs.python.org/3/library/html.entities)
@@ -240,7 +260,8 @@
 
 ---
 
-- [Internet Protocols and Support](https://docs.python.org/3/library/internet)
+## [Internet Protocols and Support](https://docs.python.org/3/library/internet)
+
 - [webbrowser — Convenient web-browser controller](https://docs.python.org/3/library/webbrowser)
 - [wsgiref — WSGI Utilities and Reference Implementation](https://docs.python.org/3/library/wsgiref)
 - [urllib — URL handling modules](https://docs.python.org/3/library/urllib)
@@ -267,19 +288,22 @@
 
 ---
 
-- [Multimedia Services](https://docs.python.org/3/library/mm)
+## [Multimedia Services](https://docs.python.org/3/library/mm)
+
 - [wave — Read and write WAV files](https://docs.python.org/3/library/wave)
 - [colorsys — Conversions between color systems](https://docs.python.org/3/library/colorsys)
 
 ---
 
-- [Internationalization](https://docs.python.org/3/library/i18n)
+## [Internationalization](https://docs.python.org/3/library/i18n)
+
 - [gettext — Multilingual internationalization services](https://docs.python.org/3/library/gettext)
 - [locale — Internationalization services](https://docs.python.org/3/library/locale)
 
 ---
 
-- [Graphical user interfaces with Tk](https://docs.python.org/3/library/tk)
+## [Graphical user interfaces with Tk](https://docs.python.org/3/library/tk)
+
 - [tkinter — Python interface to Tcl/Tk](https://docs.python.org/3/library/tkinter)
 - [tkinter.colorchooser — Color choosing dialog](https://docs.python.org/3/library/tkinter.colorchooser)
 - [tkinter.font — Tkinter font wrapper](https://docs.python.org/3/library/tkinter.font)
@@ -293,7 +317,8 @@
 
 ---
 
-- [Development Tools](https://docs.python.org/3/library/development)
+## [Development Tools](https://docs.python.org/3/library/development)
+
 - [typing — Support for type hints](https://docs.python.org/3/library/typing)
 - [pydoc — Documentation generator and online help system](https://docs.python.org/3/library/pydoc)
 - [Python Development Mode](https://docs.python.org/3/library/devmode)
@@ -313,7 +338,8 @@
 
 ---
 
-- [Debugging and Profiling](https://docs.python.org/3/library/debug)
+## [Debugging and Profiling](https://docs.python.org/3/library/debug)
+
 - [Audit events table](https://docs.python.org/3/library/audit_events)
 - [bdb — Debugger framework](https://docs.python.org/3/library/bdb)
 - [faulthandler — Dump the Python traceback](https://docs.python.org/3/library/faulthandler)
@@ -325,14 +351,16 @@
 
 ---
 
-- [Software Packaging and Distribution](https://docs.python.org/3/library/distribution)
+## [Software Packaging and Distribution](https://docs.python.org/3/library/distribution)
+
 - [ensurepip — Bootstrapping the pip installer](https://docs.python.org/3/library/ensurepip)
 - [venv — Creation of virtual environments](https://docs.python.org/3/library/venv)
 - [zipapp — Manage executable Python zip archives](https://docs.python.org/3/library/zipapp)
 
 ---
 
-- [Python Runtime Services](https://docs.python.org/3/library/python)
+## [Python Runtime Services](https://docs.python.org/3/library/python)
+
 - [sys — System-specific parameters and functions](https://docs.python.org/3/library/sys)
 - [sys.monitoring — Execution event monitoring](https://docs.python.org/3/library/sys.monitoring)
 - [sysconfig — Provide access to Python’s configuration information](https://docs.python.org/3/library/sysconfig)
@@ -352,13 +380,15 @@
 
 ---
 
-- [Custom Python Interpreters](https://docs.python.org/3/library/custominterp)
+## [Custom Python Interpreters](https://docs.python.org/3/library/custominterp)
+
 - [code — Interpreter base classes](https://docs.python.org/3/library/code)
 - [codeop — Compile Python code](https://docs.python.org/3/library/codeop)
 
 ---
 
-- [Importing Modules](https://docs.python.org/3/library/modules)
+## [Importing Modules](https://docs.python.org/3/library/modules)
+
 - [zipimport — Import modules from Zip archives](https://docs.python.org/3/library/zipimport)
 - [pkgutil — Package extension utility](https://docs.python.org/3/library/pkgutil)
 - [modulefinder — Find modules used by a script](https://docs.python.org/3/library/modulefinder)
@@ -371,7 +401,8 @@
 
 ---
 
-- [Python Language Services](https://docs.python.org/3/library/language)
+## [Python Language Services](https://docs.python.org/3/library/language)
+
 - [ast — Abstract syntax trees](https://docs.python.org/3/library/ast)
 - [symtable — Access to the compiler’s symbol tables](https://docs.python.org/3/library/symtable)
 - [token — Constants used with Python parse trees](https://docs.python.org/3/library/token)
@@ -386,14 +417,16 @@
 
 ---
 
-- [MS Windows Specific Services](https://docs.python.org/3/library/windows)
+## [MS Windows Specific Services](https://docs.python.org/3/library/windows)
+
 - [msvcrt — Useful routines from the MS VC++ runtime](https://docs.python.org/3/library/msvcrt)
 - [winreg — Windows registry access](https://docs.python.org/3/library/winreg)
 - [winsound — Sound-playing interface for Windows](https://docs.python.org/3/library/winsound)
 
 ---
 
-- [Unix-specific services](https://docs.python.org/3/library/unix)
+## [Unix-specific services](https://docs.python.org/3/library/unix)
+
 - [shlex — Simple lexical analysis](https://docs.python.org/3/library/shlex)
 - [posix — The most common POSIX system calls](https://docs.python.org/3/library/posix)
 - [pwd — The password database](https://docs.python.org/3/library/pwd)
@@ -407,13 +440,15 @@
 
 ---
 
-- [Modules command-line interface (CLI)](https://docs.python.org/3/library/cmdline)
+## [Modules command-line interface (CLI)](https://docs.python.org/3/library/cmdline)
+
 - [Superseded Modules](https://docs.python.org/3/library/superseded)
 - [getopt — C-style parser for command line options](https://docs.python.org/3/library/getopt)
 
 ---
 
-- [Removed Modules](https://docs.python.org/3/library/removed)
+## [Removed Modules](https://docs.python.org/3/library/removed)
+
 - [Security Considerations](https://docs.python.org/3/library/security_warnings)
 
 ---
