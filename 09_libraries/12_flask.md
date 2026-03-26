@@ -412,3 +412,95 @@ def home():
 
 ---
 
+## ORM
+
+Flask (in realtà `json.dumps`) non sa come convertire automaticamente un tuo oggetto Python (es. `Studente`) in JSON.
+
+Devi trasformarlo in **dict** prima di restituirlo.
+
+---
+
+## Soluzione consigliata: `dataclass` + `asdict()`
+
+```python
+from dataclasses import dataclass, asdict
+from flask import jsonify
+
+@dataclass
+class Studente:
+    id: int
+    nome: str
+    email: str
+```
+
+Poi nel controller Flask:
+
+```python
+@app.get("/studenti")
+def get_studenti():
+    cursor.execute("SELECT id, nome, email FROM studenti")
+    rows = cursor.fetchall()
+
+    studenti = [Studente(*row) for row in rows]
+
+    return jsonify([asdict(s) for s in studenti])
+```
+
+---
+
+## Se hai usato cursore `dictionary=True`
+
+Allora è ancora più semplice, perché hai già dizionari:
+
+```python
+cursor = conn.cursor(dictionary=True)
+
+@app.get("/studenti")
+def get_studenti():
+    cursor.execute("SELECT id, nome, email FROM studenti")
+    rows = cursor.fetchall()  # lista di dict
+
+    return jsonify(rows)
+```
+
+---
+
+## Se NON usi dataclass: metodo `to_dict()`
+
+```python
+class Studente:
+    def __init__(self, id, nome, email):
+        self.id = id
+        self.nome = nome
+        self.email = email
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "nome": self.nome,
+            "email": self.email
+        }
+```
+
+Controller:
+
+```python
+return jsonify([s.to_dict() for s in studenti])
+```
+
+---
+
+## Trucco veloce (ma meno pulito)
+
+```python
+return jsonify([s.__dict__ for s in studenti])
+```
+
+Funziona se l’oggetto contiene solo attributi semplici.
+
+---
+
+### Nota importante
+
+Se dentro hai tipi non serializzabili (es. `datetime`, `Decimal`) devi convertirli (stringa o float), altrimenti Flask darà lo stesso errore.
+
