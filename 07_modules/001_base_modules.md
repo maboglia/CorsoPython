@@ -64,7 +64,7 @@ Prendi un paragrafo di testo (es. un articolo di giornale) e:
 
 ## 💡 Idea per un "Esercizio Riepilogativo"
 
-Se vuoi creare una scheda di fine modulo, potresti proporre un **"Gestore di Spese"**:
+### **"Gestore di Spese"**:
 
 * L'utente inserisce una spesa (nome e importo).
 * Il programma salva la data corrente (`datetime`).

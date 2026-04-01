@@ -79,6 +79,7 @@ INSERT INTO Prodotti (id_prodotto, nome, prezzo_unitario, quantita_stock, id_cat
 
 ##-- Query di Selezione Base
 -- 1. Selezionare tutti i prodotti.
+SELECT nome, YEAR(CURDATE()) as anno, CURDATE() as 'data', NOW() as 'adesso' from Prodotti;
 -- 2. Selezionare nome e prezzo dei prodotti con prezzo superiore a 100€.
 -- 3. Elencare i fornitori di Milano.
 -- 4. Trovare i prodotti con quantità in stock pari a 0 (esauriti).
@@ -114,4 +115,54 @@ INSERT INTO Prodotti (id_prodotto, nome, prezzo_unitario, quantita_stock, id_cat
 -- 8. Trovare il fornitore che ha il prodotto più economico.
 -- 9. Calcolare la media dei prezzi dei prodotti per il fornitore 'TechSpA'.
 -- 10. Visualizzare le categorie e il numero di pezzi totali (somma stock) per ognuna.
+
+-- indice su stock
+CREATE INDEX idx_prodotti_stock ON Prodotti(quantita_stock);
+-- elimina indice
+DROP INDEX idx_prodotti_stock ON Prodotti;
+
+DELIMITER $$
+CREATE FUNCTION calcola_media(voto1 FLOAT, voto2 FLOAT) RETURNS FLOAT
+DETERMINISTIC
+BEGIN
+    RETURN (voto1 + voto2) / 2;
+END$$
+DELIMITER ;
+
+select calcola_media(30.0, 20.0);
+
+DELIMITER $$
+
+CREATE TRIGGER trg_update_prodotti
+AFTER UPDATE ON Prodotti
+FOR EACH ROW
+BEGIN
+    IF OLD.prezzo_unitario <> NEW.prezzo_unitario THEN
+        INSERT INTO log_prodotti(operazione, data_operazione, descrizione)
+        VALUES('UPDATE', NOW(),
+               CONCAT('Prodotto ', OLD.nome,
+                      ' prezzo cambiato da ', OLD.prezzo_unitario,
+                      ' a ', NEW.prezzo_unitario));
+    END IF;
+END$$
+
+DELIMITER ;
+
+
+CREATE TABLE log_prodotti (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    operazione VARCHAR(20),
+    data_operazione DATETIME,
+    descrizione VARCHAR(200)
+);
+
+
+
+
+
+
+
+
+
+
 
