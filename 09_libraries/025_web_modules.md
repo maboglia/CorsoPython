@@ -137,24 +137,6 @@ Poi vai su `http://localhost:8000` nel tuo browser. Complimenti, sei diventato u
 
 ---
 
-**Cosa puoi fare ora?**
-Dopo aver completato questa scheda, prova a risolvere gli esercizi di "Cacciatore di Email" o "Costruttore di Link" che abbiamo visto prima.
-
-Ti piacerebbe che aggiungessi una **sezione di quiz a risposta multipla** per verificare la comprensione dei concetti?
-
-Per scrivere schede didattiche sul web, è importante distinguere tra ciò che Python fa "dietro le quinte" (richieste dati) e ciò che l'utente vede (pagine nel browser).
-
-Ecco i moduli built-in più adatti a un livello scolastico/introduttivo, evitando librerie esterne pesanti come *Requests* o *Flask*.
-
----
-
-## 8. Modulo `webbrowser`: Il ponte con il Browser
-
-Questo è il modulo più semplice in assoluto. Non scarica dati, ma permette al codice di controllare il browser dell'utente. È perfetto per i principianti assoluti.
-
-* **Concetto chiave:** Automazione della navigazione.
-* **Metodo principale:** `webbrowser.open(url)`.
-
 ### 💡 Esercizio: "Il Cercatore Automatico"
 
 ```python
@@ -177,13 +159,6 @@ def ricerca_veloce():
 ```
 
 ---
-
-## 9. Modulo `urllib.request`: Scaricare Dati dal Web
-
-Questo modulo è il motore che permette a Python di "leggere" il contenuto di una pagina web o di un'API come se fosse un file locale.
-
-* **Concetto chiave:** La richiesta HTTP (Request) e la risposta del server (Response).
-* **Metodo principale:** `urllib.request.urlopen(url)`.
 
 ### 💡 Esercizio: "Il Lettore di Codice Sorgente"
 
@@ -214,12 +189,6 @@ def scarica_pagina(url):
 
 ---
 
-## 10. Modulo `urllib.parse`: Gestire gli URL
-
-Spesso gli URL contengono spazi o caratteri speciali (come `@` o `?`) che il web non capisce bene. Questo modulo "pulisce" gli URL.
-
-* **Concetto chiave:** URL Encoding (es. lo spazio diventa `%20`).
-
 ### 💡 Esercizio: "Il Costruttore di Link Sicuri"
 
 ```python
@@ -244,20 +213,6 @@ def crea_link_whatsapp():
 
 ---
 
-## 11. Modulo `http.server`: Creare un Server Locale
-
-Python può trasformare il computer in un server web con una sola riga di comando. Non serve scrivere codice complesso, si usa dal terminale.
-
-* **Istruzione didattica:**
-
-1. Apri il terminale nella cartella dove hai i tuoi file HTML.
-2. Digita: `python -m http.server 8000`.
-3. Apri il browser su `http://localhost:8000`.
-
-* **Cosa imparano:** La differenza tra "Client" (il browser) e "Server" (il programma Python che distribuisce i file).
-
----
-
 ### Tabella dei Codici di Stato
 
 Quando si lavora con il web, il modulo `urllib` può restituire degli errori (es. il famoso 404). È utile includere questa piccola legenda per gli studenti:
@@ -268,4 +223,3 @@ Quando si lavora con il web, il modulo `urllib` può restituire degli errori (es
 | **404** | Not Found    | La pagina non esiste.           |
 | **403** | Forbidden    | Non hai il permesso di entrare. |
 | **500** | Server Error | Il sito ha un problema tecnico. |
-

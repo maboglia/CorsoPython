@@ -1,7 +1,4 @@
-
----
-
-# 🔎 Cos’è `if __name__ == "__main__":`
+ 🔎 Cos’è `if __name__ == "__main__":`
 
 `if __name__ == "__main__":` è uno dei concetti più importanti della **modularità e riuso del codice**.
 
