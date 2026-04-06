@@ -1,24 +1,4 @@
-# 📁 Struttura repository
-
-```
-corso-python-base/
-│
-├── moduli/
-│   ├── modulo_01_introduzione/
-│   ├── modulo_02_tipi_dati/
-│   ├── modulo_03_variabili_operatori/
-│   ├── modulo_04_strutture_controllo/
-│   ├── modulo_05_collezioni/
-│   ├── modulo_06_funzioni/
-│   ├── modulo_07_input_output/
-│   ├── modulo_08_errori/
-│   ├── modulo_09_moduli/
-│   ├── modulo_10_progetti/
-│
-└── README.md
-```
-
----
+# 📁 Esempi di codice per ogni modulo
 
 ## 🧩 **modulo_01_introduzione/esempio.py**
 
