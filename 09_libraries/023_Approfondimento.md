@@ -130,16 +130,6 @@ def calcola_media(numeri):
 
 ---
 
-## 3. Moduli Standard della Libreria Python
-
-
-
-
-
-
-
----
-
 ## 4. Creazione di Pacchetti
 
 ### Struttura di un pacchetto
