@@ -1,0 +1,69 @@
+# Chinook
+# Database
+
+-- 1-5: Selezioni base
+# Trova tutti gli album nella tabella Album.
+
+# Trova il nome degli artisti nella tabella Artist.
+
+# Trova i dettagli dei clienti che vivono negli Stati Uniti.
+
+# Trova i dipendenti con il titolo "Sales Manager".
+
+# Trova i generi musicali elencati nella tabella Genre.
+
+-- 6-10: Filtri e ordinamenti
+# Trova i clienti la cui città inizia con "San".
+
+# Trova i brani con una durata superiore a 5 minuti (300000 millisecondi).
+
+# Ordina gli artisti in ordine alfabetico.
+
+# Trova gli album associati all'artista con ArtistId 5.
+
+# Trova le fatture con un totale superiore a $50, ordinate per data.
+
+-- 11-15: Funzioni aggregate
+# Conta il numero totale di clienti.
+
+# Calcola il totale delle vendite registrate nella tabella Invoice.
+
+# Trova il prezzo massimo tra i brani nella tabella Track.
+
+# Trova il numero di dipendenti per ogni città.
+
+# Trova il prezzo medio per unità dei brani.
+
+-- 16-20: Join semplici
+# Trova i dettagli degli album e degli artisti associati.
+
+# Trova i brani e i loro generi.
+
+# Trova i dettagli delle fatture e dei clienti.
+
+# Trova le playlist e i brani associati.
+
+# Trova i brani con il rispettivo tipo di supporto.
+
+-- 21-25: Filtri avanzati e subquery
+# Trova i brani più lunghi (durata superiore alla media).
+
+# Trova i dipendenti che non riportano a nessuno.
+
+# Trova i clienti che non hanno effettuato fatture.
+
+# Trova le città che hanno più di 2 dipendenti.
+
+# Trova i brani appartenenti a generi diversi da "Rock".
+
+-- 26-30: Query avanzate
+# Trova i dettagli delle fatture e dei dipendenti di supporto associati.
+
+# Trova i brani presenti in più di una playlist.
+
+# Conta il numero di album per artista.
+
+# Trova il cliente con la spesa totale più alta.
+
+# Trova le città in cui vivono sia dipendenti che clienti.
+
