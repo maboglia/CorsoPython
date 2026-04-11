@@ -1,334 +1,299 @@
-# ORM
+# 📌 Dataclass in Python (`dataclasses`)
 
-Flask (in realtà `json.dumps`) non sa come convertire automaticamente un tuo oggetto Python (es. `Studente`) in JSON.
-
-Devi trasformarlo in **dict** prima di restituirlo.
-
----
-
-## Soluzione consigliata: `dataclass` + `asdict()`
-
-```python
-from dataclasses import dataclass, asdict
-from flask import jsonify
-
-@dataclass
-class Studente:
-    id: int
-    nome: str
-    email: str
-```
-
-Poi nel controller Flask:
-
-```python
-@app.get("/studenti")
-def get_studenti():
-    cursor.execute("SELECT id, nome, email FROM studenti")
-    rows = cursor.fetchall()
-
-    studenti = [Studente(*row) for row in rows]
-
-    return jsonify([asdict(s) for s in studenti])
-```
-
----
-
-## Se hai usato cursore `dictionary=True`
-
-Allora è ancora più semplice, perché hai già dizionari:
-
-```python
-cursor = conn.cursor(dictionary=True)
-
-@app.get("/studenti")
-def get_studenti():
-    cursor.execute("SELECT id, nome, email FROM studenti")
-    rows = cursor.fetchall()  # lista di dict
-
-    return jsonify(rows)
-```
-
----
-
-## Se NON usi dataclass: metodo `to_dict()`
-
-```python
-class Studente:
-    def __init__(self, id, nome, email):
-        self.id = id
-        self.nome = nome
-        self.email = email
-
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "nome": self.nome,
-            "email": self.email
-        }
-```
-
-Controller:
-
-```python
-return jsonify([s.to_dict() for s in studenti])
-```
-
----
-
-## Trucco veloce (ma meno pulito)
-
-```python
-return jsonify([s.__dict__ for s in studenti])
-```
-
-Funziona se l’oggetto contiene solo attributi semplici.
-
----
-
-### Nota importante
-
-Se dentro hai tipi non serializzabili (es. `datetime`, `Decimal`) devi convertirli (stringa o float), altrimenti Flask darà lo stesso errore.
-
----
-
-## dataclass
-
-Le **dataclass** (modulo `dataclasses`, Python 3.7+) servono per creare classi “porta-dati” (DTO / Model semplici) senza scrivere tutto il codice ripetitivo.
-
-In pratica ti evitano di scrivere manualmente:
-
-* `__init__`
-* `__repr__`
-* `__eq__`
-* metodi di confronto
-* gestione default dei campi
-
----
-
-## 1) Esempio base
-
-Senza dataclass:
-
-```python
-class Studente:
-    def __init__(self, id, nome, email):
-        self.id = id
-        self.nome = nome
-        self.email = email
-```
-
-Con dataclass:
+Le `dataclass` servono per creare classi “contenitore dati” in modo rapido, evitando di scrivere manualmente `__init__`, `__repr__`, `__eq__`, ecc.
 
 ```python
 from dataclasses import dataclass
 
 @dataclass
 class Studente:
-    id: int
     nome: str
-    email: str
+    eta: int
 ```
 
-Python genera automaticamente il costruttore:
+Equivale (circa) a scrivere automaticamente:
 
-```python
-s = Studente(1, "Mario", "mario@gmail.com")
-print(s)
-```
-
-Output:
-
-```
-Studente(id=1, nome='Mario', email='mario@gmail.com')
-```
+* costruttore `__init__`
+* stampa `__repr__`
+* confronto `__eq__`
 
 ---
 
-## 2) Tipi e vantaggi
+# ✅ Proprietà (campi)
 
-Le annotazioni (`id: int`, `nome: str`) non obbligano Python a controllare i tipi runtime, però:
-
-* rendono il codice più leggibile
-* aiutano gli IDE (PyCharm, VSCode)
-* permettono strumenti di validazione / type checking (mypy)
-
----
-
-## 3) Default values
-
-```python
-from dataclasses import dataclass
-
-@dataclass
-class Studente:
-    id: int
-    nome: str
-    email: str = ""
-```
-
-Ora puoi creare:
-
-```python
-s = Studente(1, "Mario")
-```
-
----
-
-## 4) Campi opzionali (`None`)
-
-```python
-from dataclasses import dataclass
-from typing import Optional
-
-@dataclass
-class Studente:
-    id: int
-    nome: str
-    email: Optional[str] = None
-```
-
----
-
-## 5) Conversione in JSON (fondamentale con Flask)
-
-Un oggetto dataclass non è JSON serializzabile direttamente, ma puoi convertirlo in dizionario con `asdict()`:
-
-```python
-from dataclasses import asdict
-
-s = Studente(1, "Mario", "mario@gmail.com")
-
-d = asdict(s)
-print(d)
-```
-
-Output:
-
-```python
-{'id': 1, 'nome': 'Mario', 'email': 'mario@gmail.com'}
-```
-
-Poi con Flask:
-
-```python
-from flask import jsonify
-
-return jsonify(asdict(s))
-```
-
-Oppure lista:
-
-```python
-return jsonify([asdict(x) for x in studenti])
-```
-
----
-
-## 6) `field()` per liste e default mutabili
-
-⚠️ Errore tipico: mai mettere liste vuote come default diretto.
-
-Sbagliato:
+## 1) Campi tipizzati (obbligatori)
 
 ```python
 @dataclass
-class Classe:
-    studenti: list = []   # NO
+class Persona:
+    nome: str
+    cognome: str
 ```
 
-Giusto:
+Uso:
+
+```python
+p = Persona("Mario", "Rossi")
+print(p.nome)
+```
+
+---
+
+## 2) Campi con valore di default
+
+```python
+@dataclass
+class Persona:
+    nome: str
+    eta: int = 18
+```
+
+```python
+p = Persona("Anna")
+print(p.eta)  # 18
+```
+
+---
+
+## 3) Campi non inclusi nel costruttore (`init=False`)
 
 ```python
 from dataclasses import dataclass, field
 
+@dataclass
+class Persona:
+    nome: str
+    cognome: str
+    codice: str = field(init=False)
+
+    def __post_init__(self):
+        self.codice = self.nome[0] + self.cognome[0]
+```
+
+---
+
+## 4) Campi non stampati (`repr=False`)
+
+```python
+@dataclass
+class Utente:
+    username: str
+    password: str = field(repr=False)
+```
+
+---
+
+## 5) Campi non confrontati (`compare=False`)
+
+```python
+@dataclass
+class Prodotto:
+    nome: str
+    prezzo: float
+    id_interno: int = field(compare=False)
+```
+
+---
+
+## 6) Liste e mutabili: usare `default_factory`
+
+❌ SBAGLIATO:
+
+```python
+@dataclass
+class Classe:
+    studenti: list = []
+```
+
+✅ CORRETTO:
+
+```python
 @dataclass
 class Classe:
     studenti: list = field(default_factory=list)
 ```
 
-Perché ogni oggetto deve avere la sua lista separata.
+---
+
+# ✅ Proprietà calcolate con `@property`
+
+Le dataclass possono avere proprietà come qualsiasi classe.
+
+```python
+@dataclass
+class Rettangolo:
+    base: float
+    altezza: float
+
+    @property
+    def area(self):
+        return self.base * self.altezza
+```
+
+Uso:
+
+```python
+r = Rettangolo(5, 2)
+print(r.area)  # 10
+```
 
 ---
 
-## 7) Rendere l’oggetto immutabile (`frozen=True`)
+# ✅ Metodi in una dataclass
 
-Se vuoi un DTO che non possa essere modificato:
+Una dataclass può avere tutti i metodi che vuoi.
+
+```python
+@dataclass
+class Conto:
+    intestatario: str
+    saldo: float = 0.0
+
+    def deposita(self, importo: float):
+        self.saldo += importo
+
+    def preleva(self, importo: float):
+        if importo > self.saldo:
+            raise ValueError("Saldo insufficiente")
+        self.saldo -= importo
+```
+
+---
+
+# ✅ Metodo speciale `__post_init__()`
+
+Serve per eseguire codice dopo l’`__init__` generato automaticamente.
+
+```python
+@dataclass
+class Studente:
+    nome: str
+    eta: int
+
+    def __post_init__(self):
+        if self.eta < 0:
+            raise ValueError("Età non valida")
+```
+
+---
+
+# ✅ Ordinamento e confronti
+
+## 1) Confronto automatico (`eq=True` default)
+
+```python
+@dataclass
+class Punto:
+    x: int
+    y: int
+```
+
+```python
+Punto(1,2) == Punto(1,2)  # True
+```
+
+---
+
+## 2) Ordinamento (`order=True`)
+
+```python
+@dataclass(order=True)
+class Studente:
+    matricola: int
+    nome: str
+```
+
+Permette:
+
+```python
+Studente(2,"Luca") > Studente(1,"Anna")  # True
+```
+
+---
+
+# ✅ Dataclass immutabile (tipo record)
+
+## `frozen=True` (campi non modificabili)
 
 ```python
 @dataclass(frozen=True)
-class Studente:
-    id: int
-    nome: str
-    email: str
+class Coordinate:
+    x: float
+    y: float
 ```
-
-Ora questo dà errore:
 
 ```python
-s.nome = "Luigi"
+c = Coordinate(1,2)
+# c.x = 5  -> ERRORE
 ```
-
-Utile se vuoi oggetti “read-only” (molto usato nei DTO).
 
 ---
 
-## 8) Personalizzare campi esclusi da init o repr
-
-Esempio: un campo calcolato o tecnico.
+# ✅ Classi con ereditarietà
 
 ```python
-from dataclasses import dataclass, field
+@dataclass
+class Persona:
+    nome: str
 
 @dataclass
-class Studente:
-    id: int
-    nome: str
-    email: str
-    password_hash: str = field(repr=False)  # non appare nel print
+class Studente(Persona):
+    matricola: int
 ```
 
 ---
 
-## 9) `__post_init__` (validazioni dopo init)
-
-Se vuoi controllare dati appena creato l’oggetto:
+# ✅ Dataclass e campi privati
 
 ```python
-from dataclasses import dataclass
-
 @dataclass
-class Studente:
-    id: int
-    nome: str
-    email: str
-
-    def __post_init__(self):
-        if self.id <= 0:
-            raise ValueError("ID non valido")
+class Utente:
+    username: str
+    _token: str = field(repr=False)
 ```
 
 ---
 
-# Collegamento diretto con MySQL fetchall()
-
-Esempio pratico:
+# 📌 Riepilogo parametri principali `@dataclass`
 
 ```python
-cursor.execute("SELECT id, nome, email FROM studenti")
-rows = cursor.fetchall()
-
-studenti = [Studente(*row) for row in rows]
-```
-
-Poi per Flask JSON:
-
-```python
-return jsonify([asdict(s) for s in studenti])
+@dataclass(
+    init=True,       # genera __init__
+    repr=True,       # genera __repr__
+    eq=True,         # genera __eq__
+    order=False,     # genera < > <= >=
+    frozen=False     # rende immutabile
+)
+class X:
+    ...
 ```
 
 ---
 
-## In sintesi
+# 📌 Riepilogo parametri principali `field()`
 
-Le dataclass sono perfette quando vuoi creare oggetti tipo **DTO / Entity leggere**, soprattutto quando lavori con database e API REST.
+```python
+field(
+    default=...,           # valore default
+    default_factory=...,   # factory per mutabili
+    init=True,             # incluso in __init__
+    repr=True,             # visibile in stampa
+    compare=True,          # usato per confronti
+    metadata={}            # info extra
+)
+```
+
+---
+
+# ⚠️ Nota importante (errore comune)
+
+Se hai **liste, dizionari o set**, usare sempre:
+
+```python
+field(default_factory=list)
+field(default_factory=dict)
+field(default_factory=set)
+```
+
+Altrimenti, tutte le istanze condivideranno lo stesso oggetto mutabile!
+
