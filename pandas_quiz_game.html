@@ -1,0 +1,283 @@
+
+<style>
+  .quiz-wrap { padding: 1.5rem 0; font-family: var(--font-mono); }
+  .score-bar { display: flex; gap: 12px; margin-bottom: 1.5rem; }
+  .score-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.6rem 1rem; flex: 1; text-align: center; }
+  .score-label { font-size: 12px; color: var(--color-text-secondary); font-family: var(--font-sans); }
+  .score-value { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
+  .question-box { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; margin-bottom: 1rem; }
+  .q-badge { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 99px; font-family: var(--font-sans); margin-bottom: 0.75rem; }
+  .q-text { font-size: 15px; color: var(--color-text-primary); font-family: var(--font-sans); line-height: 1.6; margin-bottom: 1rem; font-weight: 500; }
+  .code-block { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.75rem 1rem; font-size: 13px; color: var(--color-text-primary); margin-bottom: 1rem; white-space: pre; overflow-x: auto; border-left: 3px solid #7F77DD; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .opt-btn { background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 0.65rem 1rem; text-align: left; cursor: pointer; font-size: 14px; color: var(--color-text-primary); font-family: var(--font-mono); transition: background 0.15s; }
+  .opt-btn:hover { background: var(--color-background-secondary); }
+  .opt-btn.correct { background: #EAF3DE; border-color: #639922; color: #27500A; }
+  .opt-btn.wrong { background: #FCEBEB; border-color: #E24B4A; color: #501313; }
+  .opt-btn.reveal { background: #EAF3DE; border-color: #639922; color: #27500A; opacity: 0.7; }
+  .feedback { border-radius: var(--border-radius-md); padding: 0.75rem 1rem; font-size: 14px; font-family: var(--font-sans); margin-top: 0.75rem; display: none; line-height: 1.5; }
+  .feedback.show { display: block; }
+  .feedback.ok { background: #EAF3DE; color: #27500A; border: 0.5px solid #639922; }
+  .feedback.ko { background: #FCEBEB; color: #501313; border: 0.5px solid #E24B4A; }
+  .nav-row { display: flex; gap: 10px; margin-top: 1rem; align-items: center; }
+  .nav-btn { border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 0.5rem 1.2rem; background: transparent; cursor: pointer; font-size: 14px; color: var(--color-text-primary); font-family: var(--font-sans); }
+  .nav-btn:hover { background: var(--color-background-secondary); }
+  .nav-btn:disabled { opacity: 0.3; cursor: default; }
+  .nav-btn.primary { background: #7F77DD; border-color: #7F77DD; color: #fff; }
+  .progress { flex: 1; background: var(--color-background-secondary); border-radius: 99px; height: 6px; overflow: hidden; }
+  .progress-fill { height: 100%; background: #7F77DD; border-radius: 99px; transition: width 0.3s; }
+  .end-screen { text-align: center; padding: 2rem 1rem; }
+  .end-score { font-size: 52px; font-weight: 500; color: #7F77DD; }
+  .end-msg { font-size: 18px; color: var(--color-text-primary); font-family: var(--font-sans); margin: 0.5rem 0 1.5rem; }
+  .end-detail { font-size: 13px; color: var(--color-text-secondary); font-family: var(--font-sans); }
+  .diff-easy { background: #EAF3DE; color: #3B6D11; }
+  .diff-med { background: #FAEEDA; color: #854F0B; }
+  .diff-hard { background: #FCEBEB; color: #A32D2D; }
+</style>
+
+<div class="quiz-wrap" id="app"></div>
+
+<script>
+const questions = [
+  {
+    diff: "facile",
+    topic: "Creazione DataFrame",
+    text: "Quale codice crea correttamente un DataFrame da un dizionario?",
+    code: `import pandas as pd
+
+data = {"nome": ["Alice", "Bob"], "età": [30, 25]}
+???`,
+    options: [
+      "df = pd.DataFrame(data)",
+      "df = pd.dataframe(data)",
+      "df = DataFrame(data)",
+      "df = pd.create(data)"
+    ],
+    answer: 0,
+    explanation: "pd.DataFrame() (D maiuscola) è il costruttore corretto. pandas è case-sensitive: dataframe minuscolo non esiste."
+  },
+  {
+    diff: "facile",
+    topic: "Selezione colonne",
+    text: "Come si seleziona la colonna 'vendite' da un DataFrame df?",
+    code: `df = pd.DataFrame({
+    "prodotto": ["A","B","C"],
+    "vendite": [100, 200, 150]
+})`,
+    options: [
+      "df[vendite]",
+      'df["vendite"]',
+      "df.get(vendite)",
+      "df.col('vendite')"
+    ],
+    answer: 1,
+    explanation: 'df["vendite"] o df.vendite (dot notation) sono entrambi validi. Senza virgolette Python cerca una variabile chiamata vendite, non una stringa.'
+  },
+  {
+    diff: "medio",
+    topic: "Filtri booleani",
+    text: "Cosa restituisce questo filtro?",
+    code: `df = pd.DataFrame({
+    "città": ["Roma","Milano","Napoli","Torino"],
+    "pop": [2800000, 1350000, 960000, 870000]
+})
+
+risultato = df[df["pop"] > 1000000]`,
+    options: [
+      "Solo Roma",
+      "Roma e Milano",
+      "Roma, Milano e Napoli",
+      "Tutte le città"
+    ],
+    answer: 1,
+    explanation: "Il filtro seleziona le righe dove pop > 1.000.000. Solo Roma (2,8M) e Milano (1,35M) superano questa soglia."
+  },
+  {
+    diff: "medio",
+    topic: "groupby",
+    text: "Cosa calcola questo codice?",
+    code: `df.groupby("categoria")["importo"].sum()`,
+    options: [
+      "La somma totale di tutti gli importi",
+      "Il numero di righe per categoria",
+      "La somma degli importi per ogni categoria",
+      "La media degli importi per categoria"
+    ],
+    answer: 2,
+    explanation: "groupby('categoria') raggruppa le righe per valore della colonna categoria, poi .sum() somma gli importi all'interno di ogni gruppo."
+  },
+  {
+    diff: "medio",
+    topic: "valori mancanti",
+    text: "Come si identificano e contano i valori NaN in ogni colonna?",
+    code: `df = pd.DataFrame({
+    "a": [1, None, 3],
+    "b": [None, None, 6]
+})
+
+???`,
+    options: [
+      "df.isna().count()",
+      "df.null().sum()",
+      "df.isna().sum()",
+      "df.count_nan()"
+    ],
+    answer: 2,
+    explanation: "df.isna() crea una maschera booleana True/False, e .sum() conta i True per colonna. Risultato: a=1, b=2."
+  },
+  {
+    diff: "difficile",
+    topic: "merge",
+    text: "Qual è il risultato di questo merge?",
+    code: `df1 = pd.DataFrame({"id":[1,2,3], "nome":["A","B","C"]})
+df2 = pd.DataFrame({"id":[2,3,4], "score":[10,20,30]})
+
+pd.merge(df1, df2, on="id", how="inner")`,
+    options: [
+      "3 righe (id 1, 2, 3)",
+      "4 righe (tutti gli id unici)",
+      "2 righe (id 2 e 3)",
+      "1 riga (solo id comune a tutti)"
+    ],
+    answer: 2,
+    explanation: "inner join restituisce solo le righe con id presenti in ENTRAMBI i DataFrame. id=2 e id=3 esistono in df1 e df2; id=1 e id=4 vengono esclusi."
+  },
+  {
+    diff: "difficile",
+    topic: "apply + lambda",
+    text: "Cosa contiene la colonna 'fascia' dopo questo codice?",
+    code: `df["fascia"] = df["voto"].apply(
+    lambda x: "alta" if x >= 7 else "bassa"
+)
+# df["voto"] = [9, 6, 8, 5, 7]`,
+    options: [
+      "['alta','alta','alta','alta','alta']",
+      "['alta','bassa','alta','bassa','alta']",
+      "['alta','bassa','bassa','alta','alta']",
+      "['alta','bassa','alta','bassa','bassa']"
+    ],
+    answer: 1,
+    explanation: "La lambda assegna 'alta' se voto >= 7, 'bassa' altrimenti. Voti: 9≥7→alta, 6<7→bassa, 8≥7→alta, 5<7→bassa, 7≥7→alta."
+  },
+  {
+    diff: "difficile",
+    topic: "pivot_table",
+    text: "Cosa produce questo codice?",
+    code: `df.pivot_table(
+    values="vendite",
+    index="regione",
+    columns="trimestre",
+    aggfunc="mean"
+)`,
+    options: [
+      "Una serie con la media totale delle vendite",
+      "Una tabella con regioni come righe, trimestri come colonne, media vendite nelle celle",
+      "Una lista ordinata delle vendite per regione",
+      "Un DataFrame con colonne duplicate per trimestre"
+    ],
+    answer: 1,
+    explanation: "pivot_table è come una tabella Excel: index definisce le righe (regione), columns le colonne (trimestre), values la metrica (vendite), aggfunc l'aggregazione (media). Produce una cross-table."
+  }
+];
+
+let current = 0, score = 0, answered = false, selected = -1;
+const state = { current: 0, score: 0, answered: false, wrong: 0 };
+
+function diffClass(d) {
+  return d === "facile" ? "diff-easy" : d === "medio" ? "diff-med" : "diff-hard";
+}
+
+function render() {
+  const app = document.getElementById("app");
+  if (state.current >= questions.length) { renderEnd(app); return; }
+  const q = questions[state.current];
+  const pct = Math.round((state.current / questions.length) * 100);
+  app.innerHTML = `
+    <div class="score-bar">
+      <div class="score-card">
+        <div class="score-label">punteggio</div>
+        <div class="score-value">${state.score}/${questions.length}</div>
+      </div>
+      <div class="score-card">
+        <div class="score-label">domanda</div>
+        <div class="score-value">${state.current + 1}/${questions.length}</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;">
+      <div class="progress"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>
+    <div class="question-box">
+      <span class="q-badge ${diffClass(q.diff)}">${q.diff} · ${q.topic}</span>
+      <div class="q-text">${q.text}</div>
+      <pre class="code-block">${q.code}</pre>
+      <div class="options" id="opts">
+        ${q.options.map((o, i) => `<button class="opt-btn" onclick="choose(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join("")}
+      </div>
+      <div class="feedback" id="fb"></div>
+    </div>
+    <div class="nav-row">
+      <button class="nav-btn primary" id="nxt" onclick="next()" disabled>Prossima →</button>
+    </div>
+  `;
+}
+
+function choose(i) {
+  if (state.answered) return;
+  state.answered = true;
+  const q = questions[state.current];
+  const btns = document.querySelectorAll(".opt-btn");
+  const fb = document.getElementById("fb");
+  const nxt = document.getElementById("nxt");
+  btns.forEach((b, idx) => {
+    b.onclick = null;
+    if (idx === q.answer) b.classList.add(i === idx ? "correct" : "reveal");
+    else if (idx === i) b.classList.add("wrong");
+  });
+  if (i === q.answer) {
+    state.score++;
+    fb.className = "feedback ok show";
+    fb.innerHTML = "✓ Corretto! " + q.explanation;
+  } else {
+    state.wrong++;
+    fb.className = "feedback ko show";
+    fb.innerHTML = "✗ Sbagliato. " + q.explanation;
+  }
+  nxt.disabled = false;
+}
+
+function next() {
+  state.current++;
+  state.answered = false;
+  render();
+}
+
+function renderEnd(app) {
+  const pct = Math.round((state.score / questions.length) * 100);
+  let msg, emoji;
+  if (pct >= 85) { msg = "Ottimo lavoro — sei pronto per il mondo reale!"; emoji = "🏆"; }
+  else if (pct >= 60) { msg = "Buona base! Ripassare groupby e merge ti farà volare."; emoji = "📊"; }
+  else { msg = "Ripassiamo insieme — pandas ha molto da offrire!"; emoji = "📚"; }
+  app.innerHTML = `
+    <div class="end-screen">
+      <div style="font-size:48px;margin-bottom:0.5rem;">${emoji}</div>
+      <div class="end-score">${state.score}/${questions.length}</div>
+      <div class="end-msg">${msg}</div>
+      <div class="end-detail" style="margin-bottom:1.5rem;">
+        Risposte corrette: ${state.score} &nbsp;·&nbsp; Sbagliate: ${state.wrong} &nbsp;·&nbsp; Percentuale: ${pct}%
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button class="nav-btn primary" onclick="restart()">↺ Rigioca</button>
+        <button class="nav-btn" onclick="sendPrompt('Spiegami meglio come funziona groupby e merge in pandas con esempi pratici')">Approfondisci groupby & merge ↗</button>
+        <button class="nav-btn" onclick="sendPrompt('Creami un esercizio pandas più difficile con un dataset reale')">Sfida avanzata ↗</button>
+      </div>
+    </div>
+  `;
+}
+
+function restart() {
+  state.current = 0; state.score = 0; state.answered = false; state.wrong = 0;
+  render();
+}
+
+render();
+</script>
