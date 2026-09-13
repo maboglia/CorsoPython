@@ -5,6 +5,12 @@ Questo materiale è pensato per studenti, docenti e professionisti che vogliono 
 
 ---
 
+![Python Course](https://play.google.com/books/publisher/content/images/frontcover/qXAMEgAAQBAJ?fife=w240-h345)
+
+[Scarica il PDF del corso](https://play.google.com/store/books/details?id=qXAMEgAAQBAJ)
+
+---
+
 ## 🎯 Obiettivi del corso
 
 - Comprendere la **logica e la sintassi di base** di Python  
