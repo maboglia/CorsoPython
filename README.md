@@ -7,7 +7,7 @@ Questo materiale è pensato per studenti, docenti e professionisti che vogliono 
 
 [![Python Course](https://play.google.com/books/publisher/content/images/frontcover/qXAMEgAAQBAJ?fife=w240-h345)](https://play.google.com/store/books/details?id=qXAMEgAAQBAJ)
 
-[Scarica il PDF del corso](https://play.google.com/store/books/details?id=qXAMEgAAQBAJ)
+[Scarica l'ebook del corso](https://play.google.com/store/books/details?id=qXAMEgAAQBAJ)
 
 ---
 
